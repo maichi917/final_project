@@ -1,16 +1,16 @@
-<div class="mx-auto w-full max-w-lg px-4 py-6">
+<div class="ui-container">
   <div class="mb-6 flex items-center justify-between gap-4">
-    <%= link_to "一覧に戻る", items_path, class: "btn-secondary" %>
-    <%= link_to "編集", edit_item_path(@item), class: "btn-primary" %>
+    <%= link_to "持ち物一覧へ", items_path, class: "btn-secondary px-4 py-2 text-sm" %>
+    <%= link_to "編集", edit_item_path(@item), class: "btn-primary px-4 py-2 text-sm" %>
   </div>
 
   <section class="ui-card space-y-6">
-    <div class="mx-auto w-full md:max-w-64">
+    <div class="mx-auto w-64">
       <%= render "image",
                  item: @item,
-                 size_class: "aspect-square w-full",
-                 image_class: "aspect-square w-full rounded-lg object-cover",
-                 placeholder_icon_class: "h-16 w-16",
+                 size_class: "w-64 h-64",
+                 image_class: "w-64 h-64 rounded-lg object-cover",
+                 placeholder_icon_class: "w-16 h-16",
                  variant_name: :preview %>
     </div>
 
@@ -19,7 +19,7 @@
         <% if @item.brand_name.present? %>
           <p class="truncate text-sm font-medium text-emerald-700"><%= @item.brand_name %></p>
         <% end %>
-        <h1 class="brand-font break-words text-2xl font-bold text-slate-900"><%= @item.name %></h1>
+        <h1 class="brand-font break-words text-lg font-bold text-slate-900"><%= @item.name %></h1>
         <div class="mt-2 flex flex-wrap items-center gap-2">
           <%= render "favorite_button", item: @item %>
           <%= render "low_stock_button", item: @item %>
